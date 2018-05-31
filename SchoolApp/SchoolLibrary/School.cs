@@ -6,13 +6,35 @@ using System.Threading.Tasks;
 
 namespace SchoolLibrary
 {
-    class School
+    public class School
     {
-        string name;
-        string address;
-        string city;
-        string state;
-        string zip;
-        string phoneNumber;
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zip { get; set; }
+        public string PhoneNumber { get; set; }
+
+        private string _twitterAddress; //backing variable
+        public string TwitterAddress
+        {
+            //returns the twitter address.
+            get
+            {
+                return _twitterAddress;
+            }
+            //make sure twitter address starts with @
+            set
+            {
+                if (value.StartsWith("@"))
+                {
+                    _twitterAddress = value;
+                }
+                else
+                {
+                    throw new Exception("The twitter address must start with @");
+                }
+            }
+        }
     }
 }
